@@ -69,6 +69,9 @@ class Responder(object):
         return rv
 
     def respond(self, instances, meta=None, links=None, linked=None):
+        if instances is None:
+            return json.dumps({self.root: []})
+
         if not isinstance(instances, list):
             instances = [instances]
 
